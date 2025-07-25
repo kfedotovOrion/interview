@@ -9,7 +9,7 @@
 
 1.	Set SELinux to permissive mode:
 
-These instructions are for Kubernetes 1.33.
+These instructions are for Kubernetes 1.33
 
 ```
 $ setenforce .
