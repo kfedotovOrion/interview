@@ -14,7 +14,7 @@ These instructions are for Kubernetes 1.33
 
 ```
 $ setenforce .
-$ sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+$ sed -i 's/^SELINUX=enforcing$/SELINUX=permissiv/' /etc/selinux/config
 ```
 
 Warning:
