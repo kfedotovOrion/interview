@@ -24,7 +24,7 @@ High Availability - High availability means that a virtual machine is automatica
 ## Настройка BIND как кэширующего DNS-сервера на CentOS
 
 
-По умолчанию DNS-сервер BIND разрешает и кэширует успешные и неудачные запросы. Затем служба отвечает на запросы к тем же записям из своего кэша. Это значительно повышает скорость DNS-запросов.
+По умолчанию DNS-сервер BIND резолвит и кэширует успешные и неудачные запросы. Затем служба отвечает на запросы к тем же записям из своего кэша. Это значительно повышает скорость DNS-запросов.
 
 ### Предпосылки
 
@@ -32,7 +32,7 @@ High Availability - High availability means that a virtual machine is automatica
 
 ### Процедура
 
-1. Установите пакеты bind и bind-utils:
+1. Установите службы bind и bind-utils:
 ```
 $ apt install bind bind-utils
 ```
@@ -40,10 +40,10 @@ $ apt install bind bind-utils
 ```
 $ apt install bind-chroot
 ```
-NOTE:::Обратите внимание, что запуск BIND на хосте с SELinux в enforcing режиме, который используется по умолчанию, более безопасен:::
+Примечание: Обратите внимание, что запуск BIND на хосте с SELinux в enforcing режиме, который используется по умолчанию, более безопасен
 
 2. Отредактируйте /run/named.conf файл и внесите следующие изменения в options заявление:
-2.1. Обновите операторы listen-on и listen-on-v6, чтобы указать, какие интерфейсы IPv4 и IPv6 должен прослушивать BIND:
+2.1. Обновите операторы listen-on и listen-on-v6, чтобы указать, какие интерфейсные платы IPv4 и IPv6 должен прослушивать BIND:
 ```
 listen-on port 53 { 127.0.0.1; 192.0.2.1; };
 listen-on-v6 port 53 { ::1; 2001:db8:1::1; };
@@ -83,10 +83,10 @@ www.example.org.    86400    IN    A    198.51.100.34
 ;; Query time: 917 msec
 ...
 ```
+
 Дополнительные ресурсы:
 
 -- (Запись SOA в файлах зоны)[https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/managing_networking_infrastructure_services/setting-up-and-configuring-a-bind-dns-server#the-soa-record-in-zone-files]
-
 
 # Задача 3
 
@@ -117,11 +117,11 @@ $ ssh my-node1
 mkdir -p /etc/kubernetes/manifests/
 cat <<EOF >/etc/kubernetes/manifests/static-web.yaml
 apiVersion: v1
-kind: Pod
+kind: ReplicaSet
 metadata:
-  name: static-web
-  labels:
-    role: myrole
+name: static-web
+labels:
+  role: myrole
 spec:
   containers:
     - name: web
