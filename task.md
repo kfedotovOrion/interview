@@ -83,6 +83,10 @@ www.example.org.    86400    IN    A    198.51.100.34
 ;; Query time: 917 msec
 ...
 ```
+Дополнительные ресурсы:
+
+-- (Запись SOA в файлах зоны)[https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/managing_networking_infrastructure_services/setting-up-and-configuring-a-bind-dns-server#the-soa-record-in-zone-files]
+
 
 # Задача 3
 
