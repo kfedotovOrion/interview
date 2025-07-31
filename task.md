@@ -9,7 +9,7 @@ Virtualization Terminology
 
 Cluster - A cluster is a set of physical hosts that are treated as a resource pool for virtual machines. Hosts in a cluster share the same network infrastructure and storage. They form a migration domain within which virtual machines can be moved from host to host.
 Data Center - A data center is the highest level container for all physical and logical resources within a managed virtual environment. It is a collection of clusters, virtual machines, storage domains, and networks.
-Events - Alerts, warnings, and other notices about activities help the administrator to monitor the performance and status of resources.
+Host - A host, or hypervisor, is a physical server that runs one or more virtual machines. Hosts are grouped into clusters. Virtual machines can be migrated from one host to another within a cluster.
 HA Services - The HA services include the ovirt-ha-agent service and the ovirt-ha-broker service. The HA services run on self-hosted engine nodes and manage the high availability of the Manager virtual machine.
 High Availability - High availability means that a virtual machine is automatically restarted if its process is interrupted, either on its original host or another host in the cluster. Highly available environments involve a small amount of downtime, but have a much lower cost than fault tolerance, which maintains two copies of each resource so that one can replace the other immediately in the event of a failure.
 
